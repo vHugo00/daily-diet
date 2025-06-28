@@ -1,5 +1,3 @@
-// src/middlewares/check-session-id-exist.ts
-
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { knex } from '../database'
 

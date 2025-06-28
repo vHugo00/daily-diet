@@ -1,5 +1,3 @@
-// src/routes/meals.ts
-
 import { FastifyInstance } from 'fastify'
 import { z } from 'zod'
 import { checkSessionIdExist } from '../middlewares/check-session-id-exist'

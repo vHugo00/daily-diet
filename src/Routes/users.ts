@@ -1,5 +1,3 @@
-// src/routes/users.ts
-
 import { FastifyInstance } from 'fastify'
 import { z } from 'zod'
 import { knex } from '../database'
