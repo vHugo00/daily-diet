@@ -54,4 +54,20 @@ export async function userRoutes(app: FastifyInstance) {
 
     return reply.status(201).send()
   })
+
+  app.delete('/:id', async (request, reply) => {
+    const getUserParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getUserParamsSchema.parse(request.params)
+
+    await knex('users')
+      .where({
+        id,
+      })
+      .del()
+
+    return reply.status(200).send('User deleted with sucess!')
+  })
 }
