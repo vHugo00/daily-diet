@@ -10,6 +10,22 @@ export async function mealsRoutes(app: FastifyInstance) {
     return mealsAll
   })
 
+  app.get('/:id', async (request) => {
+    const getMealParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getMealParamsSchema.parse(request.params)
+
+    const meal = await knex('meals')
+      .where({
+        id: id,
+      })
+      .first()
+
+    return { meal }
+  })
+
   app.post('/', async (request, reply) => {
     const createMealsBodySchema = z.object({
       id: z.string().uuid(),
@@ -33,5 +49,21 @@ export async function mealsRoutes(app: FastifyInstance) {
     })
 
     return reply.status(201).send()
+  })
+
+  app.delete('/:id', async (request, reply) => {
+    const getMealParamsSchema = z.object({
+      id: z.string().uuid(),
+    })
+
+    const { id } = getMealParamsSchema.parse(request.params)
+
+    await knex('meals')
+      .where({
+        id: id,
+      })
+      .del()
+
+    return reply.status(200).send('User deleted with sucess!')
   })
 }

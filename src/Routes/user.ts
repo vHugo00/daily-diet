@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { knex } from '../database'
 import { z } from 'zod'
-import crypto, { randomUUID } from 'node:crypto'
+import crypto from 'node:crypto'
 
 export async function userRoutes(app: FastifyInstance) {
   app.get('/', async () => {
@@ -37,7 +37,7 @@ export async function userRoutes(app: FastifyInstance) {
     let sessionId = request.cookies.sessionId
 
     if (!sessionId) {
-      sessionId = randomUUID()
+      sessionId = crypto.randomUUID()
 
       reply.cookie('sessionId', sessionId, {
         path: '/',
