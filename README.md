@@ -1,6 +1,6 @@
 ### Funcionalidades da Aplicação
 
-A aplicação entrega um conjunto de funcionalidades robustas voltadas para o controle alimentar individualizado. Seguem os principais recursos implementados:
+A aplicação entrega um conjunto de funcionalidades robustas voltadas para o controle alimentar individualizado.
 
 - ✅ **Cadastro de usuários**  
   Permite o registro de novos usuários no sistema.
